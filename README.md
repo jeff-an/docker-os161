@@ -1,5 +1,6 @@
 Build-Test Script and Docker Image for CS350
 ===
+*forked from adrw/docker-cs350-os161 and updated for the 2018 Winter term*
 - Docker image: minimalistic linux image with sys161 and os161 build tools, 24% smaller than other os161 images
 - Makefile: simple commands to run os161 directly, recompile the kernel, and recompile user programs
 - Testing: bash script with options to run together with GDB, run assignment tests, and loop through multiple test runs
