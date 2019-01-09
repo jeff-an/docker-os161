@@ -3,7 +3,6 @@ Build-Test Script and Docker Image for CS350
 - Docker image: Minimalistic docker image with sys161 and os161 build tools, 24% smaller than other os161 images
 - build-test.sh: os161 compile routines with options for looped tests and Tmux split screen GDB debugging
 - Built while taking the CS350 Operating Systems course at University of Waterloo
-- Not under active development as of Aug 9, 2017
 - **Please ⭐ or fork if you found this repo helpful**
 
 Install
