@@ -1,25 +1,42 @@
 Build-Test Script and Docker Image for CS350
 ===
-- Docker image: Minimalistic docker image with sys161 and os161 build tools, 24% smaller than other os161 images
-- build-test.sh: os161 compile routines with options for looped tests and Tmux split screen GDB debugging
-- Built while taking the CS350 Operating Systems course at University of Waterloo
+- Docker image: minimalistic linux image with sys161 and os161 build tools, 24% smaller than other os161 images
+- Makefile: simple commands to run os161 directly, recompile the kernel, and recompile user programs
+- Testing: bash script with options to run together with GDB, run assignment tests, and loop through multiple test runs
 - **Please ⭐ or fork if you found this repo helpful**
+
+Prerequisites
+---
+- You must have Docker installed and running on your system
 
 Install
 ---
-- Login to a University of Waterloo server/terminal or install Docker on own machine
-- In Terminal, navigate to parent directory of where your os161 directory will be, then run:
-  ```bash
-  $ curl -s https://raw.githubusercontent.com/adrw/docker-os161/master/bootstrap.sh | bash -s
+- Clone the repository and navigate inside the docker-os161 directory
+- Obtain a copy of the os161 source code to work off of - the directory should be in the path PATH_TO_REPO/docker-os161/os161-1.99
+  - If you would like a fresh copy, you can run these commands:
   ```
-- This will create folder structure, do clean install of os161, and download the `Makefile` and `build-test.sh`
-- There may be places such as in `submit.sh` that you will need to edit the file and add your username...etc
+    wget https://www.student.cs.uwaterloo.ca/~cs350/os161_repository/os161.tar.gz -O os161.tar.gz
+    tar -xzf os161.tar.gz
+    rm os161.tar.gz
+  ```
+- Your local environment is now ready to build the Docker image!
 
-Getting Started
+Running OS161 for the first time
 ---
-- If on your own computer within your os161 directory, start the Docker container with `make`
-  - To build image from scratch, run `make build` or `make rebuild` (build without cached Docker images)
-- Compile and run os161 with `./build-test.sh` and any of the options below
+- Make sure you have the os161-1.99 folder in your repository directory and then run `make all`
+- If you don't want to run OS161 directly and just want to be placed within the linux environment along with the OS161 source code, run `make linux`. After running this, you can follow Waterloo CS350 instructions to build the kernel, build user programs, and run OS161 manually if you like (this is essentially what the make commands do, however)
+
+Updating OS161
+---
+- After you change kernel source code, run `make newkernel` to rebuild the kernel and run OS161 again
+- After you change user source code, run `make newuser` to rebuild user programs and run OS161 again
+- If you would like to do both of the above at the same time, run `make all` again
+
+Testing
+---
+- First, run `make linux` to be placed within the dockerized linux environment
+- Now you can access the testing script, which is `bin/build-test.sh`
+- See the options below for running tests using this script. For example, to just run GDB alongside OS161 without rebuilding, you can run `./bin/build-test.sh -m`
 
 build-test.sh Options
 ---
@@ -66,15 +83,3 @@ Included Tests | Test Aliases
   - `3h  |  lwidefork  `  - loop 5 x uw-testbin/widefork
   - `3i  |  lhogparty  `  - loop 5 x uw-testbin/hogparty
 
-Just the Docker Image
----
-- Already have Docker installed and want just an os161 image?
-- Download image with `docker pull andrewparadi/cs350-os161:latest`
-- Run with `docker run -it -v {absolute local os161 src directory}:/root/cs350-os161 --entrypoint /bin/bash andrewparadi/cs350-os161:latest`
-
-Resources
----
-- [**Docker Hub andrewparadi/cs350-os161 Image**](https://hub.docker.com/r/andrewparadi/cs350-os161/)
-- [**Uberi/uw-cs350-development-environment**](https://github.com/Uberi/uw-cs350-development-environment)
-- [**University of Waterloo CS350 Operating Systems Course Site**](https://www.student.cs.uwaterloo.ca/~cs350/)
-- [**Source Code on GitHub**](https://github.com/andrewparadi/docker-os161)
