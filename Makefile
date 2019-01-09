@@ -23,7 +23,7 @@ newuser: clean detachedlinux
 	docker exec -it -w "/root/cs350-os161/root" os161-work sys161 kernel
 	docker rm -f os161-work
 
-newall: clean detachedlinux
+all: clean detachedlinux
 	docker exec -it os161-work /bin/bash bin/build-kernel.sh
 	docker exec -it os161-work /bin/bash bin/build-user.sh
 	docker exec -it -w "/root/cs350-os161/root" os161-work sys161 kernel
