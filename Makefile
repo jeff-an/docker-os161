@@ -10,19 +10,22 @@ detachedlinux: image
 run: image
 	docker run --rm -it -w "/root/cs350-os161/root" -v "$(PWD):/root/cs350-os161" --entrypoint sys161 os161:latest kernel
 
-newkernel: detachedlinux
-	docker exec -d os161-work /bin/bash bin/build-kernel.sh
+clean:
+	docker rm -f os161-work || :
+
+newkernel: clean detachedlinux
+	docker exec -it os161-work /bin/bash bin/build-kernel.sh
 	docker exec -it -w "/root/cs350-os161/root" os161-work sys161 kernel
 	docker rm -f os161-work
 		
-newuser: detachedlinux
-	docker exec -d os161-work /bin/bash bin/build-user.sh
+newuser: clean detachedlinux
+	docker exec -it os161-work /bin/bash bin/build-user.sh
 	docker exec -it -w "/root/cs350-os161/root" os161-work sys161 kernel
 	docker rm -f os161-work
 
-newall: detachedlinux
-	docker exec -d os161-work /bin/bash bin/build-kernel.sh
-	docker exec -d os161-work /bin/bash bin/build-user.sh
+newall: clean detachedlinux
+	docker exec -it os161-work /bin/bash bin/build-kernel.sh
+	docker exec -it os161-work /bin/bash bin/build-user.sh
 	docker exec -it -w "/root/cs350-os161/root" os161-work sys161 kernel
 	docker rm -f os161-work
 

@@ -10,7 +10,7 @@ set -o pipefail # for a pipeline, if any of the commands fail with a non-zero ex
 
 cs350dir="/root/cs350-os161"
 sys161dir="/root/sys161"
-ASSIGNMENT=ASST3
+ASSIGNMENT=ASST0
 TEST=false
 LOOP=false
 OPTIONS=false
