@@ -9,6 +9,7 @@ Build-Test Script and Docker Image for CS350
 Prerequisites
 ---
 - You must have Docker installed and running on your system
+- (optional) If you already have a working copy of the os161 source code, after cloning the repository place your os161-1.99 folder in the repository folder and ignore the steps that download a fresh copy of os161
 
 Install
 ---
@@ -32,6 +33,7 @@ Updating OS161
 - After you change kernel source code, run `make newkernel` to rebuild the kernel and run OS161 again
 - After you change user source code, run `make newuser` to rebuild user programs and run OS161 again
 - If you would like to do both of the above at the same time, run `make all` again
+- All of the above make commands will automatically run os161 after rebuilding
 
 Testing
 ---
