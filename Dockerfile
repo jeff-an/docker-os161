@@ -1,5 +1,5 @@
 # By Andrew Paradi | Source at https://github.com/adrw/docker-cs350-os161
-FROM debian:7
+FROM debian:8
 LABEL Andrew Paradi <me@andrewparadi.com>
 # sets up a Docker image according to the instructions on https://www.student.cs.uwaterloo.ca/~build/common/Install161NonCS.html
 
