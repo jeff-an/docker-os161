@@ -14,7 +14,7 @@ Prerequisites
 
 Install
 ---
-- Clone the repository and navigate inside the docker-os161 directory
+- Clone the repository and cd inside the docker-os161 directory
 - Obtain a copy of the os161 source code to work off of - the directory should be in the path PATH_TO_REPO/docker-os161/os161-1.99
   - If you would like a fresh copy, you can run these commands:
   ```
