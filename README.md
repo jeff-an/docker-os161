@@ -31,13 +31,13 @@ Running OS161 for the first time
 
 Updating OS161
 ---
-- When you start a new assignment, follow these steps:
+- When you **start a new assignment**, follow these steps:
   - Navigate to the `bin` folder
   - Open up each of the four `.sh` files, and change the ASSIGNMENT variable to ASSTX where X is your assignment number
   - After doing this, you *no longer need to follow Waterloo instructions surrounding running ./config ASSTX* and so on - the make commands below will just work
-- After you change kernel source code, run `make newkernel` to rebuild the kernel and run OS161 again
-- After you change user source code, run `make newuser` to rebuild user programs and run OS161 again
-- If you would like to do both of the above at the same time, run `make all` again
+- After you **change kernel source code**, run `make newkernel` to rebuild the kernel and run OS161 again
+- After you **change user source code**, run `make newuser` to rebuild user programs and run OS161 again
+- If you would like to **do both** of the above at the same time, run `make all` again
 - All of the above make commands will automatically run os161 after rebuilding
 
 Testing
