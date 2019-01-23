@@ -31,10 +31,7 @@ Running OS161 for the first time
 
 Updating OS161
 ---
-- When you **start a new assignment**, follow these steps:
-  - Navigate to the `bin` folder
-  - Open up each of the four `.sh` files, and change the ASSIGNMENT variable to ASSTX where X is your assignment number
-  - After doing this, you *no longer need to follow Waterloo instructions surrounding running ./config ASSTX* and so on - the make commands below will just work
+- When you **start a new assignment**, run "./bin/config X" where X is your assignment number
 - After you **change kernel source code**, run `make newkernel` to rebuild the kernel and run OS161 again
 - After you **change user source code**, run `make newuser` to rebuild user programs and run OS161 again
 - If you would like to **do both** of the above at the same time, run `make all` again
@@ -42,8 +39,9 @@ Updating OS161
 
 Testing
 ---
-- First, run `make linux` to be placed within the dockerized linux environment
-- Open up the `bin/build-test.sh` script and change the ASSIGNMENT variable to ASSTX depending on your assignment if you haven't already done this
+- If you have changed the kernel or user source code, make sure you've ran `make newkernel` or `make newuser` already
+- Run `make linux` to be placed within the dockerized linux environment
+- Run "./bin/config X" where X is your assignment number if you haven't already done so
 - Now you can access the testing script, which is `bin/build-test.sh`
 - See the options below for running tests using this script. For example, to just run GDB alongside OS161 without rebuilding, you can run `./bin/build-test.sh -m`
 
