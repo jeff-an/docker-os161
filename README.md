@@ -31,7 +31,7 @@ Running OS161 for the first time
 
 Updating OS161
 ---
-- When you **start a new assignment**, run "./bin/config X" where X is your assignment number
+- When you **start a new assignment**, run `./bin/config X` where X is your assignment number
 - After you **change kernel source code**, run `make newkernel` to rebuild the kernel and run OS161 again
 - After you **change user source code**, run `make newuser` to rebuild user programs and run OS161 again
 - If you would like to **do both** of the above at the same time, run `make all` again
@@ -41,7 +41,7 @@ Testing
 ---
 - If you have changed the kernel or user source code, make sure you've ran `make newkernel` or `make newuser` already
 - Run `make linux` to be placed within the dockerized linux environment
-- Run "./bin/config X" where X is your assignment number if you haven't already done so
+- Run `./bin/config X` where X is your assignment number if you haven't already done so
 - Now you can access the testing script, which is `bin/build-test.sh`
 - See the options below for running tests using this script. For example, to just run GDB alongside OS161 without rebuilding, you can run `./bin/build-test.sh -m`
 
