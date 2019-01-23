@@ -1,4 +1,4 @@
-# By Andrew Paradi | Source at https://github.com/adrw/docker-cs350-os161
+# By Andrew Paradi, Jeff An | Source at https://github.com/jeff-an/docker-os161/
 #!/usr/bin/env bash
 
 # runs OS/161 in SYS/161 and attaches GDB, side by side in a tmux window
@@ -10,7 +10,7 @@ set -o pipefail # for a pipeline, if any of the commands fail with a non-zero ex
 
 cs350dir="/root/cs350-os161"
 sys161dir="/root/sys161"
-ASSIGNMENT=ASST3
+ASSIGNMENT=ASST0
 TEST=false
 LOOP=false
 OPTIONS=false

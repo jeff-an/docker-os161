@@ -1,3 +1,4 @@
+# By Andrew Paradi, Jeff An | Source at https://github.com/jeff-an/docker-os161/
 #!/usr/bin/env bash
 
 # runs OS/161 in SYS/161 and attaches GDB, side by side in a tmux window

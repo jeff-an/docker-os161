@@ -1,4 +1,4 @@
-# By Andrew Paradi | Source at https://github.com/adrw/docker-cs350-os161
+# By Andrew Paradi, Jeff An | Source at https://github.com/adrw/docker-cs350-os161
 #!/usr/bin/env bash
 
 # runs OS/161 in SYS/161 and attaches GDB, side by side in a tmux window
