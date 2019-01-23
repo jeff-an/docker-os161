@@ -1,18 +1,20 @@
 Build-Test Script and Docker Image for CS350
 ===
 *Forked from adrw/docker-cs350-os161 and updated for the 2018 Winter term*
+
 - Docker image: minimalistic linux image with sys161 and os161 build tools, 24% smaller than other os161 images
 - Makefile: simple commands to run os161 directly, recompile the kernel, and recompile user programs
 - Testing: bash script with options to run together with GDB, run assignment tests, and loop through multiple test runs
-- **Please ⭐ or fork if you found this repo helpful**
+- **Please ⭐ if you found this repo helpful**
 
 Prerequisites
 ---
 - You must have Docker installed and running on your system
+- (optional) If you already have a working copy of the os161 source code, after cloning the repository place your os161-1.99 folder in the repository folder and ignore the steps that download a fresh copy of os161
 
 Install
 ---
-- Clone the repository and navigate inside the docker-os161 directory
+- Clone the repository and cd inside the docker-os161 directory
 - Obtain a copy of the os161 source code to work off of - the directory should be in the path PATH_TO_REPO/docker-os161/os161-1.99
   - If you would like a fresh copy, you can run these commands:
   ```
@@ -29,13 +31,19 @@ Running OS161 for the first time
 
 Updating OS161
 ---
-- After you change kernel source code, run `make newkernel` to rebuild the kernel and run OS161 again
-- After you change user source code, run `make newuser` to rebuild user programs and run OS161 again
-- If you would like to do both of the above at the same time, run `make all` again
+- When you **start a new assignment**, follow these steps:
+  - Navigate to the `bin` folder
+  - Open up each of the four `.sh` files, and change the ASSIGNMENT variable to ASSTX where X is your assignment number
+  - After doing this, you *no longer need to follow Waterloo instructions surrounding running ./config ASSTX* and so on - the make commands below will just work
+- After you **change kernel source code**, run `make newkernel` to rebuild the kernel and run OS161 again
+- After you **change user source code**, run `make newuser` to rebuild user programs and run OS161 again
+- If you would like to **do both** of the above at the same time, run `make all` again
+- All of the above make commands will automatically run os161 after rebuilding
 
 Testing
 ---
 - First, run `make linux` to be placed within the dockerized linux environment
+- Open up the `bin/build-test.sh` script and change the ASSIGNMENT variable to ASSTX depending on your assignment if you haven't already done this
 - Now you can access the testing script, which is `bin/build-test.sh`
 - See the options below for running tests using this script. For example, to just run GDB alongside OS161 without rebuilding, you can run `./bin/build-test.sh -m`
 
